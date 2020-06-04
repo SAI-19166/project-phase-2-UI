@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>form</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <style>
+            .login-container{
+                
+                width: 100%;
+                height: 100vh;
+                
+            }
+            .login-form{
+                max-width: 100%;
+                width: 370px;
+                padding: 15px;
+                box-shadow: 5px 5px 10px  rgb(73, 73, 73);
+                
+            }
+            .form-control:focus{
+                box-shadow: 0 0 0 0.2rem rgb(73, 73, 73);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container d-flex align-items-center justify-content-center bg-light">
+            <form class="login-form  " id="s1" name="form1" action="main.html" onsubmit="return validate()"  >
+                <h1 class="text-center">Feedback</h1>
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control" name="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" class="form-control" name="mobile" placeholder="mobile number">
+                </div>
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control" name="address" placeholder="address line">
+                </div>
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control" name="city" placeholder="city">
+                </div>
+                <div class="form-group">
+                    
+                    <input type="text" class="form-control" name="state" placeholder="state">
+                </div>
+                <div class="form-group">
+                    
+                    <input type="number" class="form-control" name="pincode" placeholder="pincode">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <input type="submit" class="form-control btn btn-dark" value="Submit" >
+                        </div>
+                        <div>
+                            <input type="button" onclick="document.getElementById('s1').reset()" class="form-control btn btn-dark " value="Reset">
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+
+            <script>
+                function validate(){
+                    var name,mobile,address,city,state,pincode,num,i;
+                    name= document.form1.name.value;
+                    mobile=document.form1.mobile.value;
+                    city=document.form1.city.value;
+                    state=document.form1.state.value;
+                    pincode=document.form1.pincode.value;
+                    num = [1,2,3,4,5,6,7,8,9,0];
+                    for(i=0;i<num.length;i++){
+                        if(name.match(num[i])){
+                            alert("name should not contain numericals");
+                            return false;
+                        }
+                    }
+
+                    if(name=='' || mobile=='' || city=='' || state=='' || pincode==''){
+                        alert("no blank spaces are accepted");
+                        return false;
+                    }
+                    if(mobile.length>10){
+                        alert("mobile number must contain 10 digits");
+                        return false;
+                    }
+                    if(pincode.length>6){
+                        alert("pincode must contain 6 digits");
+                        return false;
+                    }
+                    else{
+                        
+                        alert("feedback submitted");
+                        return true;
+                    }
+                    
+
+            
+                 
+                }
+            </script>
+        </div>
+    </body>
+</html>
